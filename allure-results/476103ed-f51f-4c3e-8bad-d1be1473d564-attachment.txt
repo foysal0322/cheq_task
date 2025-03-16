@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "C:\Users\Foysal\Desktop\cheq_task\tests\test_001.py", line 60, in test_003
+    home_page.login(credentials['Email'][0],credentials['Password'][0])
+  File "C:\Users\Foysal\Desktop\cheq_task\Pages\home_page.py", line 21, in login
+    self.driver.find_element(*self.locator.EMAIL).send_keys(email)
+  File "C:\Users\Foysal\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 231, in send_keys
+    self._execute(
+  File "C:\Users\Foysal\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webelement.py", line 395, in _execute
+    return self._parent.execute(command, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Foysal\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 348, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Foysal\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.StaleElementReferenceException: Message: stale element reference: stale element not found
+  (Session info: chrome=134.0.6998.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#stale-element-reference-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF663E3FE45+26629]
+	(No symbol) [0x00007FF663DA6010]
+	(No symbol) [0x00007FF663C3931A]
+	(No symbol) [0x00007FF663C4F424]
+	(No symbol) [0x00007FF663C4DEF3]
+	(No symbol) [0x00007FF663C419A9]
+	(No symbol) [0x00007FF663C3F782]
+	(No symbol) [0x00007FF663C43A3C]
+	(No symbol) [0x00007FF663C43B0F]
+	(No symbol) [0x00007FF663C9074A]
+	(No symbol) [0x00007FF663C90817]
+	(No symbol) [0x00007FF663C860FA]
+	(No symbol) [0x00007FF663CB7AAA]
+	(No symbol) [0x00007FF663C82156]
+	(No symbol) [0x00007FF663CB7CC0]
+	(No symbol) [0x00007FF663CE0169]
+	(No symbol) [0x00007FF663CB7883]
+	(No symbol) [0x00007FF663C80550]
+	(No symbol) [0x00007FF663C81803]
+	GetHandleVerifier [0x00007FF6641972BD+3529853]
+	GetHandleVerifier [0x00007FF6641ADA22+3621858]
+	GetHandleVerifier [0x00007FF6641A24D3+3575443]
+	GetHandleVerifier [0x00007FF663F0B77A+860474]
+	(No symbol) [0x00007FF663DB088F]
+	(No symbol) [0x00007FF663DACBC4]
+	(No symbol) [0x00007FF663DACD66]
+	(No symbol) [0x00007FF663D9C2C9]
+	BaseThreadInitThunk [0x00007FFB21397374+20]
+	RtlUserThreadStart [0x00007FFB2321CC91+33]
+

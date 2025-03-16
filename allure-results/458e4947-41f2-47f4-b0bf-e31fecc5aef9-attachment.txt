@@ -1,0 +1,38 @@
+Traceback (most recent call last):
+  File "C:\Users\Foysal\Desktop\cheq_task\tests\test_001.py", line 63, in test_003
+    home_page.select_suite_preference()
+  File "C:\Users\Foysal\Desktop\cheq_task\Pages\home_page.py", line 45, in select_suite_preference
+    self.driver.find_element(*self.locator.SAVE_BTN).click()
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Foysal\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 742, in find_element
+    return self.execute(Command.FIND_ELEMENT, {"using": by, "value": value})["value"]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Foysal\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\webdriver.py", line 348, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Foysal\AppData\Local\Programs\Python\Python311\Lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 229, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"//button[text()="Save"]"}
+  (Session info: chrome=134.0.6998.89); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+	GetHandleVerifier [0x00007FF663E3FE45+26629]
+	(No symbol) [0x00007FF663DA6010]
+	(No symbol) [0x00007FF663C3931A]
+	(No symbol) [0x00007FF663C8F8E7]
+	(No symbol) [0x00007FF663C8FB1C]
+	(No symbol) [0x00007FF663CE34A7]
+	(No symbol) [0x00007FF663CB7AEF]
+	(No symbol) [0x00007FF663CE0169]
+	(No symbol) [0x00007FF663CB7883]
+	(No symbol) [0x00007FF663C80550]
+	(No symbol) [0x00007FF663C81803]
+	GetHandleVerifier [0x00007FF6641972BD+3529853]
+	GetHandleVerifier [0x00007FF6641ADA22+3621858]
+	GetHandleVerifier [0x00007FF6641A24D3+3575443]
+	GetHandleVerifier [0x00007FF663F0B77A+860474]
+	(No symbol) [0x00007FF663DB088F]
+	(No symbol) [0x00007FF663DACBC4]
+	(No symbol) [0x00007FF663DACD66]
+	(No symbol) [0x00007FF663D9C2C9]
+	BaseThreadInitThunk [0x00007FFB21397374+20]
+	RtlUserThreadStart [0x00007FFB2321CC91+33]
+
