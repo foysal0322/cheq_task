@@ -12,7 +12,7 @@ class BaseTest():
         path = Path()
         options = Options()
         options.add_argument("--start-maximized")
-        # options.add_argument("--start-fullscreen")
+        # options.add_argument("--headless")
         self.driver = webdriver.Chrome(options=options)
         self.driver.implicitly_wait(10)
         yield

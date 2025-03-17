@@ -1,8 +1,11 @@
 
 import allure
+import inspect
 import pytest
 from Pages.home_page import HomePage
 from TestConf.config import *
+from TestConf.send_report import *
+
 from selenium.webdriver.common.by import By
 
 
@@ -14,6 +17,7 @@ class Test_001(BaseTest):
     def test_login(self, setUp):
         '''this test case will login with given credentials'''
         try:
+
             home_page = HomePage(driver=self.driver)
             home_page.open('')
             # read data from excel
@@ -22,9 +26,11 @@ class Test_001(BaseTest):
             self.driver.find_element(By.XPATH,'//button[text()="Account"]').click()
             assert  self.driver.find_element(By.XPATH,'//button[text()="Log Out"]').is_displayed(),"Element is not visible"
 
+            send_discord_notification(f'{inspect.currentframe().f_code.co_name} executed')
         except Exception as e:
             home_page.take_screenshot()
             home_page.log_info(e)
+            send_discord_notification(f'{inspect.currentframe().f_code.co_name} failed, Here is the logs: {e}')
 
     @pytest.mark.negative
     def test_negative(self, setUp):
@@ -37,9 +43,11 @@ class Test_001(BaseTest):
             home_page.login(credentials['Email'][1],credentials['Password'][1])
             self.driver.find_element(By.XPATH,"//*[contains(text(),'Invalid Username or Password')]").is_displayed(),"Element is not visible"
 
+            send_discord_notification(f'{inspect.currentframe().f_code.co_name} executed')
         except Exception as e:
             home_page.take_screenshot()
             home_page.log_info(e)
+            send_discord_notification(f'{inspect.currentframe().f_code.co_name} failed, Here is the logs: {e}')
 
 
     @pytest.mark.e2e
@@ -65,10 +73,12 @@ class Test_001(BaseTest):
             total_before_preorder = home_page.submit_preorder()
             home_page.select_credit_card()
             total_after_preorder = home_page.enter_credit_card_details(card_details['Card no'][0],str(card_details['Exp_Date'][0]),card_details['CVC/CVV'][0],card_details['Name On Card'][0])
-
             assert str(total_before_preorder) == str(total_after_preorder)
+
+            send_discord_notification(f'{inspect.currentframe().f_code.co_name} executed')
 
         except Exception as e:
             home_page.take_screenshot()
             home_page.log_info(e)
+            send_discord_notification(f'{inspect.currentframe().f_code.co_name} failed, Here is the logs: {e}')
 
