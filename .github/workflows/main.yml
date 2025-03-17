@@ -1,0 +1,15 @@
+name: CI Pipeline
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run a Simple Script
+        run: echo "Hello, GitHub Actions!"
+        
