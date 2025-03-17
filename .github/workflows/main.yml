@@ -1,15 +1,27 @@
-name: CI Pipeline
+name: Run Pytest Selenium Tests
 
-on: [push]
+on:  
+  push:  
+    branches: [main]  
+  pull_request:
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Run a Simple Script
-        run: echo "Hello, GitHub Actions!"
-        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Selenium Tests with Pytest
+        run: pytest --headless --disable-warnings --maxfail=5
