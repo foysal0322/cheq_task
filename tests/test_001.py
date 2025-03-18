@@ -1,11 +1,10 @@
-
 import allure
 import inspect
 import pytest
 from Pages.home_page import HomePage
 from TestConf.config import *
 from TestConf.send_report import *
-
+from utils.data import *
 from selenium.webdriver.common.by import By
 
 
@@ -21,7 +20,7 @@ class Test_001(BaseTest):
             home_page = HomePage(driver=self.driver)
             home_page.open('')
             # read data from excel
-            credentials = home_page.read_excel("C:/Users/Foysal/Desktop/cheq_task/utils/info.xlsx","Login credentials")
+            credentials = home_page.read_excel(FILE_PATH,"Login credentials")
             home_page.login(credentials['Email'][0],credentials['Password'][0])
             self.driver.find_element(By.XPATH,'//button[text()="Account"]').click()
             assert  self.driver.find_element(By.XPATH,'//button[text()="Log Out"]').is_displayed(),"Element is not visible"
@@ -39,7 +38,7 @@ class Test_001(BaseTest):
             home_page = HomePage(driver=self.driver)
             home_page.open('')
             # read data from excel
-            credentials = home_page.read_excel("C:/Users/Foysal/Desktop/cheq_task/utils/info.xlsx","Login credentials")
+            credentials = home_page.read_excel(FILE_PATH,"Login credentials")
             home_page.login(credentials['Email'][1],credentials['Password'][1])
             self.driver.find_element(By.XPATH,"//*[contains(text(),'Invalid Username or Password')]").is_displayed(),"Element is not visible"
 
@@ -61,9 +60,9 @@ class Test_001(BaseTest):
             home_page = HomePage(driver=self.driver)
             home_page.open('')
             # read data from excel
-            credentials = home_page.read_excel("C:/Users/Foysal/Desktop/cheq_task/utils/info.xlsx","Login credentials")
-            event_details = home_page.read_excel("C:/Users/Foysal/Desktop/cheq_task/utils/info.xlsx","Event details")
-            card_details = home_page.read_excel("C:/Users/Foysal/Desktop/cheq_task/utils/info.xlsx","Card details")
+            credentials = home_page.read_excel(FILE_PATH,"Login credentials")
+            event_details = home_page.read_excel(FILE_PATH,"Event details")
+            card_details = home_page.read_excel(FILE_PATH,"Card details")
 
             home_page.login(credentials['Email'][0],credentials['Password'][0])
             home_page.select_Date_Event(event_details['Date'][0],event_details['Event name'][0])
